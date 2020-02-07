@@ -1,7 +1,8 @@
 const dotenv = require('dotenv')
 dotenv.config()
+const withCSS = require('@zeit/next-css')
 
-module.exports = {
+module.exports = withCSS({
   env: {
     AUTH0_DOMAIN: process.env.AUTH0_DOMAIN,
     AUTH0_CLIENT_ID: process.env.AUTH0_CLIENT_ID,
@@ -14,4 +15,4 @@ module.exports = {
     SESSION_COOKIE_SECRET: process.env.SESSION_COOKIE_SECRET,
     SESSION_COOKIE_LIFETIME: 7200, // 2 hours
   },
-}
+})

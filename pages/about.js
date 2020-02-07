@@ -1,21 +1,24 @@
-import React from 'react'
-
 import Layout from '../components/layout'
 import { useFetchUser } from '../lib/user'
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
+import dynamic from "next/dynamic";
+
+
+
+const Page = dynamic(
+  () => import("../components/about"),
+  {
+    ssr: false
+  }
+);
 
 function About() {
   const { user, loading } = useFetchUser()
 
   return (
     <Layout user={user} loading={loading}>
-      <h1>About</h1>
-      <p>
-        This is the about page, navigating between this page and <i>Home</i> is
-        always pretty fast. However, when you navigate to the <i>Profile</i>{' '}
-        page it takes more time because it uses SSR to fetch the user first;
-      </p>
+      <h1>about</h1>
     </Layout>
   )
-}
-
-export default About
+} export default Page
